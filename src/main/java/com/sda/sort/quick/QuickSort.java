@@ -10,7 +10,7 @@ public class QuickSort {
     }
 
     private static void quickSort(Integer[] tablica, int początek, int koniec) {
-        if(początek == koniec){
+        if (początek == koniec) {
             return;
         }
         int indexPivot = (początek + koniec) / 2; // znalezienie środka
@@ -25,17 +25,17 @@ public class QuickSort {
 
             while (tablica[indeksLewa] < pivot) { // szukamy elementu większego
                 licznikInstrukcji++;
-//                if(tablica[indeksLewa] < pivot) {
-                indeksLewa++;
-//                }
+                if (tablica[indeksLewa] < pivot) {
+                    indeksLewa++;
+                }
             }
 
             // dopóki element jest WIĘKSZY od pivot (szukam mniejszego)
             while (tablica[indeksPrawa] > pivot) {
                 licznikInstrukcji++;
-//                if((tablica[indeksPrawa] > pivot)) {
-                indeksPrawa--;
-//                }
+                if ((tablica[indeksPrawa] > pivot)) {
+                    indeksPrawa--;
+                }
             }
             if (indeksLewa <= indeksPrawa) { // jeśli strzałki nam się nie skrzyżowały
                 int tmp = tablica[indeksLewa];
@@ -47,12 +47,14 @@ public class QuickSort {
             licznikInstrukcji++;
         } while (indeksLewa <= indeksPrawa);
 
+        licznikInstrukcji++;
         if (początek < indeksPrawa) {
-            quickSort(tablica, początek, indexPivot);
+            quickSort(tablica, początek, indeksPrawa);
         }
 
-        if (indeksLewa > koniec) {
-            quickSort(tablica, indexPivot, koniec);
+        licznikInstrukcji++;
+        if (indeksLewa < koniec) {
+            quickSort(tablica, indeksLewa, koniec);
         }
     }
 }
