@@ -2,6 +2,7 @@ package com.sda.sort;
 
 import com.sda.sort.bubble.BubbleSort;
 import com.sda.sort.counting.CountingSort;
+import com.sda.sort.merge.MergeSort;
 
 import java.util.Arrays;
 
@@ -15,7 +16,8 @@ public class Main {
 //        BubbleSort.sort(tablicaNotSorted); // n^2 = (n * (n-1))/2
 //         O(n^2)
         // (~)((n * (n-1))/2)
-        CountingSort.sort(tablicaNotSorted, 10);
+//        CountingSort.sort(tablicaNotSorted, 10);
+        MergeSort.sort(tablicaNotSorted);
         System.out.println(Arrays.asList(tablicaNotSorted));
 
 //        System.out.println("Sortujemy Sorted: ");
